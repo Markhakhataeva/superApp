@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+*{
+  box-sizing: border-box;
+}
+.header{
+  width: 100%;
+  display: flex;
+
+}
+.header>a{
+  text-decoration: none;
+}
+.menu{
+  color: black;
+  padding: 20px 0 5px 20px;
+  font-size: 19px;
+  cursor: pointer;
+}
+.logo{
+  padding: 20px 0 5px 25px;
+  font-size: 25px;
+  cursor: pointer;
+  font-family: "Calibri Light",sans-serif;
+ color: #bd1313;
+
+}
+.head>hr{
+  display: block;
+  color: #9a9797;
+}
