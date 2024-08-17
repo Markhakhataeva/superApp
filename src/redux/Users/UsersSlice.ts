@@ -1,5 +1,18 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {UsersProps} from "../../types/types";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+
+interface UsersProps {
+    users:Array<{
+        username: string;
+        id:number
+    }>,
+    loadingUsers:boolean
+}
+
+type UserACtion = {
+    username: string;
+    id: number;
+}
 
 const initialState:UsersProps = {
     users:[],
@@ -8,9 +21,17 @@ const initialState:UsersProps = {
 
 export const getUsers = createAsyncThunk(
     "FETCH_USERS",
-    async () => {
-        const res = await fetch("http://localhost:8080/users")
-        return res.json()
+    async (_,{rejectWithValue}) => {
+       try{
+           const res = await fetch("http://localhost:8080/users")
+
+           if (!res.ok){
+               return rejectWithValue("server is not okey")
+           }
+           return res.json()
+       }catch(error){
+           return rejectWithValue(error)
+       }
     }
 )
 
@@ -24,7 +45,7 @@ export const userSlice = createSlice({
             .addCase(getUsers.pending, (state) => {
                 state.loadingUsers = true
             })
-            .addCase(getUsers.fulfilled, (state, action) => {
+            .addCase(getUsers.fulfilled, (state, action:PayloadAction<UserACtion[]>) => {
                 state.loadingUsers = false
                 state.users = action.payload
             })

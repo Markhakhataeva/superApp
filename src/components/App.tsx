@@ -1,24 +1,17 @@
-import {Route, Routes} from "react-router-dom";
-import {Header} from "./Header/Header";
-import {User} from "./Users/User";
-import {FC, useEffect} from "react";
-import {getUsers} from "../redux/Users/UsersSlice";
+import { AppLayout } from './AppLayout/AppLayout'
+import React, { FC } from 'react'
+import { Route, Routes } from 'react-router'
+import { Messages } from './Messages/Messages'
 
 
 export const App:FC = () => {
-
-    useEffect(():void => {
-        (getUsers());
-    }, []);
-
-
-  return (
-      <div className="App">
-          <Header/>
-          <Routes>
-              <Route path="/usersSlice" element={<User />}/>
-          </Routes>
-
-      </div>
-  )
+    return(
+        <div className="App">
+            <AppLayout >
+                <Routes>
+                    <Route  path="/messages/:id?" element={<Messages/>} />
+                </Routes>
+            </AppLayout>
+        </div>
+    )
 }

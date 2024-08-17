@@ -1,35 +1,35 @@
 {
   "users": [
     {
-      "username":"Mark",
+      "username":"Mark Juno",
       "id": 1
     },
     {
-      "username":"Aslan",
+      "username":"Aslan Lino",
       "id": 2
     },
     {
-      "username":"Halima",
+      "username":"Halima Pepero",
       "id": 3
     },
     {
-      "username":"Amina",
+      "username":"Amina Bisu",
       "id": 4
     },
     {
-      "username":"Amir",
+      "username":"Amir Rimskiy",
       "id": 5
     },
     {
-      "username":"Rabin",
+      "username":"Robin Gud",
       "id": 6
     },
     {
-      "username":"AMA",
+      "username":"AMA Kama",
       "id": 7
     },
     {
-      "username":"Vik",
+      "username":"Viktor Nikolaevich",
       "id": 8
     }
   ],
@@ -37,50 +37,51 @@
     {
       "message_id": 1,
       "user_id": 1,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "Hello, how are you? Can you help me?",
+      "text": ""
     },
     {
       "message_id": 2,
       "user_id": 2,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "Hello, how are you? I wanna ask you about new book."
     },
     {
       "message_id": 3,
       "user_id": 3,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "You,where are uou now? "
     },
     {
       "message_id": 4,
       "user_id": 4,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "Hi,we must go to school,where are you?"
     },
     {
       "message_id": 5,
       "user_id": 5,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "Lets'go to the park tomorrow"
     },
     {
       "message_id": 6,
       "user_id": 6,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "do you remember you took my books?Give me my books!"
     },
     {
       "message_id": 7,
       "user_id": 7,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "Any plans for tomorrow?"
     },
     {
       "message_id": 8,
       "user_id": 8,
-      "timestamp": "",
-      "message": ""
+      "timestamp": "2023-08-21, 10:35:00",
+      "message": "I'm at work,we won't be able to meet today"
     }
   ]
 }

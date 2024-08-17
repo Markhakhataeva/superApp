@@ -30,3 +30,15 @@ body {
   display: block;
   color: #9a9797;
 }
+
+.link>a{
+  text-decoration: none;
+  color: blue;
+}
+.user>a{
+   text-decoration: none;
+   color: gray;
+ }
+.user{
+  padding-top: 20px;
+}
