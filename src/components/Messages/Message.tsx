@@ -1,14 +1,18 @@
 import React, { FC } from 'react'
 import styles from '../../styles/Message.module.scss'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 
-interface Message{
-    text:string
+interface Message {
+    text: string,
 }
 
-export const Message:FC<Message> = ({text}:Message) => {
+export const Message: FC<Message> = ({ text }: Message) => {
 
-    return(
+    const messages = useTypedSelector(state => state.messages.messages)
+
+
+    return (
         <div>
             <div className={styles.user_mes2}>
                 <div className={styles.user_name}>
@@ -17,7 +21,7 @@ export const Message:FC<Message> = ({text}:Message) => {
                     </b></p>
                 </div>
                 <p>
-                    {text}
+                    {messages.map(mes => mes.message)}
                 </p>
             </div>
         </div>

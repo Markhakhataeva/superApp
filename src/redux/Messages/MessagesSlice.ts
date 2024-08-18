@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { defaultMethod } from 'react-router-dom/dist/dom'
 
 
 interface MessagesProps {
@@ -43,21 +42,42 @@ export const getMessages = createAsyncThunk(
     }
 )
 
+
+export const addMess = createAsyncThunk(
+    "FETCH_TEXT",
+    async function( text ,{rejectWithValue,dispatch}){
+        try{
+            const messages = {
+                message_id:1,
+                message:text,
+                timestamp:Date.now(),
+                user_id:1,
+            };
+            const res = await fetch("http://localhost:8080/messages", {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(messages),
+            });
+            if (!res.ok){
+                return rejectWithValue("server is not okey")
+            }
+            const data = await res.json()
+            dispatch(addText(data));
+        }catch (e){
+            return rejectWithValue("server is not okey")
+        }
+    }
+)
+
+
 export const meesSlice = createSlice({
     name: 'messages',
     initialState,
     reducers: {
         addText:(state,action)=>{
-            state.messages = [
-                {
-                    message:action.payload.text,
-                    user_id:action.payload.id,
-                    timestamp:action.payload.timestamp,
-                    message_id:action.payload.id,
-
-                }
-            ]
-            action.payload.setText("")
+            state.messages.push(action.payload)
         }
     },
     extraReducers: (builder) => {
@@ -71,5 +91,5 @@ export const meesSlice = createSlice({
             })
     }
 })
-export const { addText } = meesSlice.actions
+ const {addText} = meesSlice.actions
 export default meesSlice.reducer

@@ -24,12 +24,12 @@ export const Messages:FC = () => {
     const users = useTypedSelector(state => state.users.users)
     const user = users.filter((user): boolean => user.id === id)
 
-
     const [text,setText] = useState<string>("")
 
     useEffect(() => {
         dispatch(getMessages())
     }, [])
+
 
 
     return (
@@ -53,7 +53,7 @@ export const Messages:FC = () => {
                         </p>
                     </div>
                     <Message text={text} />
-                    <Form text={text} setText={setText} />
+                    <Form text={text} setText={setText}/>
                 </div>
             </div>
         </div>
