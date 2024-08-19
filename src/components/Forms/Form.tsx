@@ -13,7 +13,7 @@ export const Form: FC<formProps> = ({ text, setText }: formProps) => {
     const dispatch = useTypedDispatch()
 
     const handleClick = () => {
-        dispatch(addMess( ))
+        dispatch(addMess( ))//<=={text}
         setText('')
 
     }

@@ -48,10 +48,10 @@ export const addMess = createAsyncThunk(
     async function( text ,{rejectWithValue,dispatch}){
         try{
             const messages = {
-                message_id:1,
+                message_id:121,
                 message:text,
                 timestamp:Date.now(),
-                user_id:1,
+                user_id:121,
             };
             const res = await fetch("http://localhost:8080/messages", {
                 method: "POST",

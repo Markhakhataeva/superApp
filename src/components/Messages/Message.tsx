@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import styles from '../../styles/Message.module.scss'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 
 interface Message {
@@ -8,9 +7,6 @@ interface Message {
 }
 
 export const Message: FC<Message> = ({ text }: Message) => {
-
-    const messages = useTypedSelector(state => state.messages.messages)
-
 
     return (
         <div>
@@ -21,7 +17,7 @@ export const Message: FC<Message> = ({ text }: Message) => {
                     </b></p>
                 </div>
                 <p>
-                    {messages.map(mes => mes.message)}
+                    {text}
                 </p>
             </div>
         </div>
