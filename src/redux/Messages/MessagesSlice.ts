@@ -45,20 +45,16 @@ export const getMessages = createAsyncThunk(
 
 export const addMess = createAsyncThunk(
     "FETCH_TEXT",
-    async function( text ,{rejectWithValue,dispatch}){
+    async function( text:string ,{rejectWithValue,dispatch}){
         try{
-            const messages = {
-                message_id:121,
-                message:text,
-                timestamp:Date.now(),
-                user_id:121,
-            };
             const res = await fetch("http://localhost:8080/messages", {
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json",
                 },
-                body:JSON.stringify(messages),
+                body:JSON.stringify({
+                    message:text
+                }),
             });
             if (!res.ok){
                 return rejectWithValue("server is not okey")

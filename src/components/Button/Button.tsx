@@ -5,13 +5,13 @@ import Stack from '@mui/material/Stack'
 
 
 interface IconLabelButtonsProps {
-    onClick?: () => any,
+    handleClick?: () => void
 }
 
-export const IconLabelButtons = ({ onClick }: IconLabelButtonsProps) => {
+export const IconLabelButtons = ({  handleClick }: IconLabelButtonsProps) => {
     return (
         <Stack direction="row" spacing={2}>
-            <Button variant="contained" endIcon={<SendIcon />}>
+            <Button variant="contained" endIcon={<SendIcon />} onClick={handleClick}>
                 Send
             </Button>
         </Stack>

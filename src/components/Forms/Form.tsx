@@ -13,9 +13,11 @@ export const Form: FC<formProps> = ({ text, setText }: formProps) => {
     const dispatch = useTypedDispatch()
 
     const handleClick = () => {
-        dispatch(addMess( ))//<=={text}
-        setText('')
-
+        if(text.trim().length){
+            dispatch(addMess(text))
+            setText("")
+        }
+        console.log(text)
     }
 
     return (
@@ -29,7 +31,7 @@ export const Form: FC<formProps> = ({ text, setText }: formProps) => {
 
                 />
                 <IconLabelButtons
-                    onClick={handleClick} />
+                    handleClick={handleClick} />
             </div>
         </div>
     )
