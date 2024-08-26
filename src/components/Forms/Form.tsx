@@ -3,6 +3,7 @@ import styles from '../../styles/Message.module.scss'
 import { IconLabelButtons } from '../Button/Button'
 import { addMess } from '../../redux/Messages/MessagesSlice'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 interface formProps {
     text: string,
@@ -11,15 +12,23 @@ interface formProps {
 
 export const Form: FC<formProps> = ({ text, setText }: formProps) => {
     const dispatch = useTypedDispatch()
+    const messages = useTypedSelector(state => state.messages.messages)
+    const id = messages.find(x => x)?.message_id
+    const user_id = messages.find(x => x)?.user_id
+    const timestamp = messages.find(x => x)?.timestamp
+
+
 
     const handleClick = () => {
         if(text.trim().length){
-            dispatch(addMess(text))
-            setText("")
+            if(id && user_id && timestamp){
+                dispatch(addMess({ text, id, user_id, timestamp}))
+                setText("")
+            }
         }
         console.log(text)
     }
-
+    console.log(id)
     return (
         <div>
             <div className={styles.collab}>

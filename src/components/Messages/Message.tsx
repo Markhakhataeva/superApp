@@ -18,8 +18,7 @@ export const Message: FC<Message> = ({ mes }: Message) => {
                     </b></p>
                 </div>
                 <p>
-                    {mes?.text}
-                    {/*{mes?.message}*/}
+                    {mes?.message}
                 </p>
             </div>
         </div>

@@ -47,19 +47,17 @@ export const Messages:FC = () => {
                             </b></p>
                         </div>
                         <p>
-                            {
-                                message.map((mes: MessagesState) => <div>{mes.message}</div>)
-                            }
+                            {message.map((mes: MessagesState) => <div>{mes.message}</div>)}
                         </p>
                         <div className={styles.time}>
                             {message.map((mes: MessagesState) => <div>{mes.timestamp}</div>)}
                         </div>
                     </div>
-                    {
-                        message.map((mes)=> {
-                            return <Message  text={text}  mes={mes}  />
-                        })
-                    }
+                    {/*{*/}
+                    {/*    message.map((mes)=> {*/}
+                    {/*        return <Message  text={text}  mes={mes} key={mes.message_id} />*/}
+                    {/*    })*/}
+                    {/*}*/}
                     <Form text={text} setText={setText}/>
                 </div>
             </div>

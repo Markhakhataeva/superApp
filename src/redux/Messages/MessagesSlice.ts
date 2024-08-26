@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 
 interface MessagesProps {
@@ -17,6 +18,13 @@ type MessagesACtion = {
     timestamp:string,
     message:string,
 
+}
+
+type AddMessageType = {
+    text:string,
+    id:number,
+    user_id:number,
+    timestamp:string
 }
 
 const initialState:MessagesProps = {
@@ -45,22 +53,23 @@ export const getMessages = createAsyncThunk(
 
 export const addMess = createAsyncThunk(
     "FETCH_TEXT",
-    async function( text:string ,{rejectWithValue,dispatch}){
+    async function(messageData:AddMessageType,{rejectWithValue}){
         try{
-            const res = await fetch("http://localhost:8080/messages", {
-                method: "POST",
+            const res = await axios.post("http://localhost:8080/messages", {
                 headers:{
                     "Content-Type": "application/json",
                 },
                 body:JSON.stringify({
-                    message:text
+                    message_id:messageData.id + 1,
+                    user_id:messageData.id + 1,
+                    timestamp:messageData.timestamp,
+                    message:messageData.text
                 }),
             });
-            if (!res.ok){
+            if (res.status === 404 || res.status === 500){
                 return rejectWithValue("server is not okey")
             }
-            const data = await res.json()
-            dispatch(addText(data));
+            return await res.data
         }catch (e){
             return rejectWithValue("server is not okey")
         }
